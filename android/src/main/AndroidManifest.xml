@@ -1,28 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.umair.beacons_plugin">
 
-    <!-- Bluetooth and location permissions -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- Required Bluetooth LE feature -->
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
 
     <application>
-        <!-- Google Play Services version metadata -->
-        
-
-        <!-- Broadcast Receivers -->
         <receiver
             android:name="com.umair.beacons_plugin.BeaconsBroadcastReceiver"
             android:enabled="true" />
@@ -36,7 +27,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- Services -->
         <service
             android:name="com.umair.beacons_plugin.BeaconsDiscoveryService" />
 
@@ -44,11 +34,9 @@
             android:name="org.altbeacon.beacon.service.BeaconService"
             android:enabled="true"
             android:isolatedProcess="false"
-            android:label="beacon" /> 
-
+            android:label="beacon" />
         <service
             android:name="org.altbeacon.beacon.BeaconIntentProcessor"
-            android:enabled="true"
-            android:exported="true" /> <!-- Add android:exported="true" -->
+            android:enabled="true" />
     </application>
 </manifest>
